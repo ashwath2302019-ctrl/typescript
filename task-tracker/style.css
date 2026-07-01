@@ -1,0 +1,36 @@
+.done {
+    text-decoration: line-through;
+}
+
+.overdue {
+    color: red;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+input,
+select,
+button {
+    padding: 8px;
+    margin: 5px;
+}
+
+#task-list li {
+    margin: 8px 0;
+}
+
+
+
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 8px;
+}
