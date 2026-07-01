@@ -9,7 +9,7 @@ interface details {
 
 type task = string | Array<string>;
 const a:task = "ashwath";
-const b:task = ["hari","ram"];
+const b:task = ["hari","ram"];  
 
 interface Notification {
     id: string;
@@ -18,7 +18,16 @@ interface Notification {
 }
 interface noti extends Notification {
     update : Date;
-}
+}  //this allows to add some new properties to the existing properties without modifying the original.
 
 type num = (t:number)=>void;
-const ab:num = (n)=>console.log(n);
+const ab:num = (n)=>console.log(n);  // it helps to directly assign the input and output type within a single line which helps in code readability
+
+type HttpMethod =
+    | "GET"
+    | "POST"
+    | "PUT"
+    | "DELETE"
+    | "PATCH";
+
+    const method:HttpMethod = "GET"; 
