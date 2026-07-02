@@ -7,7 +7,7 @@ type Direction = "north" | "south" | "east" | "west";
 function getUserById(id:useriD): void {
     
 }
-const id1 = "user1231";
+const id1 = "user123";
     getUserById(id1);
 
 
