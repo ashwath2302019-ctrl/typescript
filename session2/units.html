@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Units</title>
+    <link rel="stylesheet" href="css/units.css" />
+  </head>
+  <body>
+    <div class="box-px">Fixed: 300px wide</div>
+    <div class="box-percent">Flexible: 50% wide</div>
+    <div class="box-rem">Font-based: 20rem wide</div>
+    <div class="box-vw">Viewport: 60vw wide</div>
+    <section class="font-demo">
+  <p class="px-text">This text is 16px</p>
+  <p class="rem-text">This text is 1rem</p>
+  <p class="em-text">This text is 1.5em inside a smaller parent</p>
+</section>
+  </body>
+</html>
+
+<!-- **Observe:** Drag the browser window narrower. Which boxes change size? Which stay fixed?  
+ px and rem box stay fixed while the other 2 boxes change it's size when being zoomed in or out 
+**Write a comment in your CSS answering:** When would you choose `px` over `rem` or `%`? -->
+<!-- I would choose px when I need an exact fixed size, such as icons, borders, or small buttons.
+I would choose rem when I want the size to scale based on the root font size, which is better for accessibility.
+I would choose % when I want the element to resize based on its parent container, useful for responsive layouts. -->
+
+<!-- **Observe:** Change `html { font-size: 20px; }`. Which text scales? Which stays the same?  
+The text assigned with px value remains the same .
+**Write a comment** explaining the difference between `rem` and `em` in your own words. -->
+<!-- rem -> the size of rem only changes according to the size of the root element html or body so the name root element
+em -> the size of the em changes according to the size of the parent element section so (the value of em *the parent value) -->
+
+
