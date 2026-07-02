@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox</title>
+    <link rel="stylesheet" href="css/flexbox.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+  <div class="logo">MyApp</div>
+  <ul class="nav-links">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+    <div class="container">
+      <div class="item">1</div>
+      <div class="item">2</div>
+      <div class="item">3</div>
+      <div class="item">4</div>
+      <div class="item">5</div>
+    </div>
+    <section class="card-row">
+  <div class="card">
+    <h3>Card One</h3>
+    <p>Some description text goes here.</p>
+  </div>
+  <div class="card">
+    <h3>Card Two</h3>
+    <p>Some description text goes here.</p>
+  </div>
+  <div class="card">
+    <h3>Card Three</h3>
+    <p>Some description text goes here.</p>
+  </div>
+  <div class="card">
+    <h3>Card Four</h3>
+    <p>Some descri  ption text goes here.</p>
+  </div>
+  <div class="card">
+    <h3>Card Five</h3>
+    <p>Some descri  ption text goes here.</p>
+  </div>
+</section>
+    <div class="grow-container">
+  <div class="grow-1">grow: 1</div>
+  <div class="grow-2">grow: 2</div>
+  <div class="grow-1">grow: 1</div>
+</div>
+  </body>
+</html>
+
+<!-- /*
+flex-grow controls how much extra free space a flex item should take.
+If all items have flex-grow: 1, they share the extra space equally.
+If one item has flex-grow: 2, it takes twice as much extra space as an item with flex-grow: 1.
+If one item has flex-grow: 3, it takes three times more extra space compared to flex-grow: 1.
+*/ -->
+<!-- 🔍 **Explore:**
+ What happens when you add a fourth card? What happens when you add `flex-wrap: wrap` and shrink the window? Write your observation as a comment. -->
+
+<!-- when i add a fourth card it allocates a equal space to the card and it remains in the same rows consisting of cards1,2,and 3 -->
+ <!-- when i give flex-wrap :wrap the card remains the same and no changes takes place. -->
