@@ -1,4 +1,4 @@
-let a:any="ashwath";
+let a:any="ashwath13";
 a.toUpperCase();      //any doesn't care about the type and hold any value
 a.tofixed(2);
 
