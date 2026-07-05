@@ -1,0 +1,24 @@
+{
+  "name": "session1",
+  "version": "1.0.0",
+  "description": "This session is about the principles and working of Nodejs",
+  "main": "compare.js",
+  "scripts": {
+    "start": "node dates.js",
+    "hello": "node hello.js",
+    "info": "node system-info.js",
+    "dev": "nodemon dates.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ashwath",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "dayjs": "^1.11.21",
+    "days": "^1.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
