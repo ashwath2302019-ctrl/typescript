@@ -1,17 +1,28 @@
-import { type ReactNode } from 'react'
-import { render,type  RenderOptions } from '@testing-library/react'
+import type { ReactElement, ReactNode } from 'react'
+import { render, type RenderOptions } from '@testing-library/react'
+import { InternProvider } from '../contexts/intern-context'
 import { ThemeProvider } from '../contexts/theme-context'
 
-function AllProviders({ children }: { children: ReactNode }) {
+interface AllProvidersProps {
+  children: ReactNode
+}
+
+function AllProviders({ children }: AllProvidersProps) {
   return (
     <ThemeProvider>
-      {children}
+      <InternProvider>{children}</InternProvider>
     </ThemeProvider>
   )
 }
 
-function customRender(ui: React.ReactElement, options?: RenderOptions) {
-  return render(ui, { wrapper: AllProviders, ...options })
+function customRender(
+  ui: ReactElement,
+  options?: Omit<RenderOptions, 'wrapper'>,
+) {
+  return render(ui, {
+    wrapper: AllProviders,
+    ...options,
+  })
 }
 
 export * from '@testing-library/react'
