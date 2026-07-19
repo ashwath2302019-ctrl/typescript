@@ -60,6 +60,80 @@ test('handleReset clears form values and error', () => {
   expect(result.current.error).toBe('')
 })
 
+
+
+test('shows an error when the name is empty', () => {
+
+  const { result } = renderHook(() => useInternForm())
+
+  act(() => {
+    result.current.isValid()
+  })
+
+  expect(result.current.error).toBe('Name is required')
+})
+
+test('returns true when the name is Sneha and the score is 88', () => {
+  // Arrange
+  const { result } = renderHook(() => useInternForm())
+
+  act(() => {
+    result.current.handleChange({
+      target: {
+        name: 'name',
+        value: 'Sneha',
+        type: 'text',
+      },
+    } as React.ChangeEvent<HTMLInputElement>)
+
+    result.current.handleChange({
+      target: {
+        name: 'score',
+        value: '88',
+        type: 'number',
+      },
+    } as React.ChangeEvent<HTMLInputElement>)
+  })
+
+  // Act
+  let isFormValid = false
+
+  act(() => {
+    isFormValid = result.current.isValid()
+  })
+
+  // Assert
+  expect(isFormValid).toBe(true)
+})
+
+
+test('updates the name field when handleChange receives a name change event', () => {
+  // Arrange
+  const { result } = renderHook(() => useInternForm())
+
+  const nameChangeEvent = {
+    target: {
+      name: 'name',
+      value: 'Sneha',
+      type: 'text',
+    },
+  } as React.ChangeEvent<HTMLInputElement>
+
+  // Act
+  act(() => {
+    result.current.handleChange(nameChangeEvent)
+  })
+
+  // Assert
+  expect(result.current.form.name).toBe('Sneha')
+})
+
+
+// The three AAA phases are clearly separated.
+// Arrange creates the hook before it is used.
+// Act calls isValid() with the default empty name.
+// Assert checks only the error produced by isValid().
+
 // Hook tests check the logic directly without involving the UI.
 // They make it easier to verify state changes and quickly identify whether
 // a bug is in the hook logic or in the component that uses the hook.
