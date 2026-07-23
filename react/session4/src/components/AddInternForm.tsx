@@ -1,22 +1,57 @@
-import useInternForm from '../hooks/useInternForm'
-import { useInterns } from '../contexts/intern-context'
+import useInternForm from '../hooks/useInternForm';
+import { useInterns } from '../contexts/intern-context';
 
 function AddInternForm() {
-  const { form, error, handleChange, handleReset, isValid } = useInternForm()
-  const { addIntern, interns } = useInterns()
+  const {
+    form,
+    error,
+    handleChange,
+    handleReset,
+    isValid,
+  } = useInternForm();
 
-  function handleSubmit(): void {
-    if (!isValid()) return
-    addIntern({ id: interns.length + 1, ...form })
-    handleReset()
+  const { addIntern, interns } = useInterns();
+
+  function handleSubmit(
+    event: React.FormEvent<HTMLFormElement>,
+  ): void {
+    event.preventDefault();
+
+    if (!isValid()) {
+      return;
+    }
+
+    const nextId =
+      interns.length > 0
+        ? Math.max(...interns.map((intern) => intern.id)) + 1
+        : 1;
+
+    addIntern({
+      id: nextId,
+      ...form,
+    });
+
+    handleReset();
   }
 
   return (
-    <div>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+    <form
+      aria-label="Add Intern"
+      onSubmit={handleSubmit}
+    >
+      {error && (
+        <p
+          role="alert"
+          className="validation-error"
+          style={{ color: 'red' }}
+        >
+          {error}
+        </p>
+      )}
 
       <div>
         <label htmlFor="name">Intern Name</label>
+
         <input
           id="name"
           name="name"
@@ -29,6 +64,7 @@ function AddInternForm() {
 
       <div>
         <label htmlFor="score">Score</label>
+
         <input
           id="score"
           name="score"
@@ -47,11 +83,13 @@ function AddInternForm() {
           checked={form.isPresent}
           onChange={handleChange}
         />
+
         <label htmlFor="isPresent">Present</label>
       </div>
 
       <div>
         <label htmlFor="role">Role</label>
+
         <select
           id="role"
           name="role"
@@ -64,10 +102,18 @@ function AddInternForm() {
         </select>
       </div>
 
-      <button onClick={handleSubmit}>Add Intern</button>
-      <button onClick={handleReset}>Reset</button>
-    </div>
-  )
+      <button type="submit">
+        Add Intern
+      </button>
+
+      <button
+        type="button"
+        onClick={handleReset}
+      >
+        Reset
+      </button>
+    </form>
+  );
 }
 
-export default AddInternForm
+export default AddInternForm;
