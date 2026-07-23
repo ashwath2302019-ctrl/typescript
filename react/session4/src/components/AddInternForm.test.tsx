@@ -174,3 +174,28 @@ describe('AddInternForm', () => {
 // Keep describe blocks no more than two levels deep so tests stay easy to read
 // and locate. Too much nesting makes test names long and the test structure
 // harder to understand and maintain.
+
+
+
+// The test "returns true when the name is Sneha and the score is 88"
+// could be improved.
+//
+// It partially violates the Self-validating principle because it only
+// checks the return value of isValid().
+//
+// A better version would also verify that no error message is present,
+// making the expected behaviour clearer.
+
+
+test('updates the name field', () => {
+  expect.hasAssertions()
+
+  // Arrange
+  ...
+
+  // Act
+  ...
+
+  // Assert
+  expect(result.current.form.name).toBe('Sneha')
+})
