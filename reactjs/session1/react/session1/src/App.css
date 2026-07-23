@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 240px;
+  padding: 1rem;
+
+  background-color: aqua;
+  box-shadow: 2px 3px 4px 5px chocolate;
+  border-radius: 10px;
+}
+
+.card-title {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: medium;
+  font-style: italic;
+}
+
+/* // In TSX, the style attribute accepts a JavaScript object instead of a CSS string.
+// CSS property names are written in camelCase (e.g., fontSize instead of font-size)
+// because they follow JavaScript object property naming rules. This also allows us
+// to use variables, expressions, and dynamic values easily. */
