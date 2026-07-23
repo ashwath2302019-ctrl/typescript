@@ -24,22 +24,16 @@ function useInternForm(): UseInternFormReturn {
   const [error, setError] = useState<string>('')
 
   function handleChange(
-  e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
-): void {
-  const { name, value, type } = e.target
-
-  setError('')
-
-  setForm((prev) => ({
-    ...prev,
-    [name]:
-      type === 'checkbox'
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ): void {
+    const { name, value, type } = e.target
+    setForm(prev => ({
+      ...prev,
+      [name]: type === 'checkbox'
         ? (e.target as HTMLInputElement).checked
-        : name === 'score'
-          ? Number(value)
-          : value,
-  }))
-}
+        : name === 'score' ? Number(value) : value,
+    }))
+  }
 
   function handleReset(): void {
     setForm(initialForm)
